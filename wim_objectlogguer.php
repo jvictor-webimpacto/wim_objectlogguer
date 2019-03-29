@@ -1,6 +1,6 @@
 <?php
 
-  require_once ('classes/ObjectLogger.php');
+  require_once('classes/ObjectLogger.php');
   if (!defined('_PS_VERSION_'))
     exit;
    
@@ -27,7 +27,8 @@
 
 }
 
-
+  //REGISTRAMOS LOS HOOK NECESARIOS PARA AÑADIR,BORRAR Y ACTUALIZAR. CUANDO INSTALAMOS EL MÓDULO SE CREA LA TABLA 
+  
     public function install()
     {    
        include(dirname(__FILE__).'\sql\install.php');
@@ -39,7 +40,7 @@
        $this->registerHook('actionObjectUpdateAfter');
     }
 
-
+     //HOOK DE ACTUALIZADO, CREAMOS LA INSTANCIA DE OBJECTLOGGER Y ASIGNAMOS A CADA COLUMNA SU VALOR
      public function hookActionObjectUpdateAfter($params)
     {
 
@@ -49,14 +50,14 @@
       $anadir->object_type = get_class($params['object']);
       $anadir->message = "Object ". get_class($params['object']) . " with id " . $params['object']->id;
       $anadir->date_add = date("Y-m-d H:i:s");
-      
-      if(get_class($params['object']) != 'ObjectLogger'){
-        $anadir->add();
-      }
+
+       //SI SE CUMPLE ESTA CONDICIÓN ACTUALIZA
+      if (get_class($params['object']) != 'ObjectLogger'){
+        $anadir->add();}
 
     }
 
-
+     //HOOK DE AÑADIR, CREAMOS LA INSTANCIA DE OBJECTLOGGER Y ASIGNAMOS A CADA COLUMNA SU VALOR
     public function hookActionObjectAddAfter($params)
     {
 
@@ -67,13 +68,13 @@
       $after->message = "Object ". get_class($params['object']) . " with id " . $params['object']->id;
       $after->date_add = date("Y-m-d H:i:s");
       
-      if(get_class($params['object']) != 'ObjectLogger') {
-        $after->add();
-      }
+       //SI SE CUMPLE ESTA CONDICIÓN AÑADE
+      if (get_class($params['object']) != 'ObjectLogger') {
+        $after->add();}
 
     }
 
-
+    //HOOK DE BORRADO, CREAMOS LA INSTANCIA DE OBJECTLOGGER Y ASIGNAMOS A CADA COLUMNA SU VALOR
     public function hookActionObjectDeleteAfter($params)
     {
 
@@ -84,9 +85,10 @@
       $del->message = "Object ". get_class($params['object']) . " with id " . $params['object']->id;
       $del->date_add = date("Y-m-d H:i:s");
       
-      if(get_class($params['object']) != 'ObjectLogger') {
-        $del->add();
-      }
+
+      //SI SE CUMPLE ESTA CONDICIÓN ELIMINA
+      if (get_class($params['object']) != 'ObjectLogger') {
+        $del->add();}
 
     }
 

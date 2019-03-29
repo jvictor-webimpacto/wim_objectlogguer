@@ -1,8 +1,7 @@
 
 <?php
 
-class ObjectLogger extends ObjectModel
- {
+class ObjectLogger extends ObjectModel{
 
    public static $definition = array(
        'table' => 'objectlogguer',
@@ -14,8 +13,9 @@ class ObjectLogger extends ObjectModel
            'message' => array('type' => self::TYPE_STRING, 'validate' => 'isGenericName'),
            'date_add' => array('type' => self::TYPE_DATE, 'validate' => 'isDate', 'copy_post' => false),
            
-       ),
-   );
+        ),
+    );
 
 
 }
+
