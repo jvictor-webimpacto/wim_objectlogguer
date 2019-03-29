@@ -3,7 +3,7 @@
 
 class ObjectLogger extends ObjectModel{
 
-   public static $definition = array(
+   public static $definition = array (
        'table' => 'objectlogguer',
        'primary' => 'id_objectlogguer',
        'fields' => array(

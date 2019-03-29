@@ -52,8 +52,10 @@
       $anadir->date_add = date("Y-m-d H:i:s");
 
        //SI SE CUMPLE ESTA CONDICIÓN ACTUALIZA
-      if (get_class($params['object']) != 'ObjectLogger'){
-        $anadir->add();}
+      if (get_class($params['object']) != 'ObjectLogger')
+      {
+        $anadir->add();
+      }
 
     }
 
@@ -69,8 +71,10 @@
       $after->date_add = date("Y-m-d H:i:s");
       
        //SI SE CUMPLE ESTA CONDICIÓN AÑADE
-      if (get_class($params['object']) != 'ObjectLogger') {
-        $after->add();}
+      if (get_class($params['object']) != 'ObjectLogger')
+      {
+        $after->add();
+      }
 
     }
 
@@ -87,8 +91,10 @@
       
 
       //SI SE CUMPLE ESTA CONDICIÓN ELIMINA
-      if (get_class($params['object']) != 'ObjectLogger') {
-        $del->add();}
+      if (get_class($params['object']) != 'ObjectLogger') 
+      {
+        $del->add();
+      }
 
     }
 
