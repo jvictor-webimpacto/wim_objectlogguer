@@ -1,5 +1,4 @@
 <?php
-
 /** 
 * 2007-2017 Javier
 *
@@ -35,11 +34,11 @@ $sql = array();
         `message` text NOT NULL,
         `date_add` datetime NOT NULL,
         PRIMARY KEY (`id_objectlogguer`)
-      ) ENGINE=' . _MYSQL_ENGINE_ . ' DEFAULT CHARSET=utf8;';
-
-foreach ($sql as $query)
-{
-    if(Db::getInstance()->execute($query) == false){
-        return false;
+      )ENGINE=' . _MYSQL_ENGINE_ . ' DEFAULT CHARSET=utf8;';
+    foreach ($sql as $query)
+    {
+        if (Db::getInstance()->execute($query) == false)
+        {
+            return false;
+        }
     }
-}

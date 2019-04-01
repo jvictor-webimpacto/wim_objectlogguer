@@ -1,5 +1,4 @@
 <?php
-
 /** 
 * 2007-2017 Javier
 *
@@ -26,11 +25,10 @@
 */
 class ObjectLogger extends ObjectModel
 {
-
-   public static $definition = array(
-       'table' => 'objectlogguer',
-       'primary' => 'id_objectlogguer',
-       'fields' => array(
+        public static $definition = array(
+        'table' => 'objectlogguer',
+        'primary' => 'id_objectlogguer',
+        'fields' => array(
            'affected_object' => array('type' => self::TYPE_INT, 'validate' => 'isUnsignedInt', 'copy_post' => false),
            'action_type' => array('type' => self::TYPE_STRING, 'validate' => 'isName', 'size' => 255),
            'object_type' => array('type' => self::TYPE_STRING, 'validate' => 'isName', 'size' => 255),
@@ -40,4 +38,5 @@ class ObjectLogger extends ObjectModel
         ),
     );
 }
+
 
